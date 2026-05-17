@@ -26,7 +26,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container">
-        <a class="navbar-brand fs-1 fw-medium" href="#">Saquib Job Portal Web App</a>
+        <a class="navbar-brand fs-3 fw-semibold" href="/home">Saquib Job Portal</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
@@ -35,9 +35,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="viewalljobs">All Jobs</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://www.naukri.com/mnjuser/homepage">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/viewalljobs">All Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/addjob">Post Job</a></li>
             </ul>
         </div>
     </div>
@@ -57,7 +57,7 @@
 
                     <!-- Thymeleaf replaces ${jobPost} -->
 
-                    <h5 class="card-title" th:text="${jobPost.postProfile}"></h5>
+                    <h5 class="card-title" th:text="${jobPost.postProfile}">Job Profile</h5>
 
                     <p class="card-text">
                         <strong>Job Id:</strong>
@@ -79,16 +79,16 @@
                     </p>
 
                     <ul>
-                        <li th:each="tech : ${jobPost.postTechStack}"
-                            th:text="${tech}">
-                        </li>
+                        <li th:each="tech : ${jobPost.postTechStack}" th:text="${tech}">Tech</li>
                     </ul>
 
-                </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <a class="btn btn-primary" th:href="@{/apply/{postId}(postId=${jobPost.postId})}">Apply Now</a>
+                        <a class="btn btn-outline-light" href="/viewalljobs">Back to Jobs</a>
+                    </div>
 
-                <div class="card-footer text-center">
-                    <a href="/viewalljobs" class="btn btn-primary">Back</a>
                 </div>
+                
 
             </div>
 

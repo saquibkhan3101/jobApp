@@ -23,7 +23,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container">
-        <a class="navbar-brand fs-1 fw-medium" href="#">Saquib Job Portal Web App</a>
+        <a class="navbar-brand fs-3 fw-semibold" href="/home">Saquib Job Portal</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
@@ -32,9 +32,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="viewalljobs">All Jobs</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://www.naukri.com/mnjuser/homepage">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/viewalljobs">All Jobs</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/addjob">Post Job</a></li>
             </ul>
         </div>
     </div>
@@ -53,32 +53,32 @@
                     </h2>
 
                     <!-- THYMELEAF FORM (replaces JSP form:form) -->
-                    <form action="handleForm" method="post">
+                    <form action="/handleForm" method="post">
 
                         <div class="mb-2">
-                            <label class="form-label">Post ID</label>
-                            <input type="text" class="form-control" name="postId" required>
+                            <label class="form-label" for="postId">Post ID</label>
+                            <input type="number" class="form-control" id="postId" name="postId" min="1" required>
                         </div>
 
                         <div class="mb-2">
-                            <label class="form-label">Post Profile</label>
-                            <input type="text" class="form-control" name="postProfile" required>
+                            <label class="form-label" for="postProfile">Post Profile</label>
+                            <input type="text" class="form-control" id="postProfile" name="postProfile" required>
                         </div>
 
                         <div class="mb-2">
-                            <label class="form-label">Post Description</label>
-                            <textarea class="form-control" name="postDesc" rows="2" required></textarea>
+                            <label class="form-label" for="postDesc">Post Description</label>
+                            <textarea class="form-control" id="postDesc" name="postDesc" rows="2" required></textarea>
                         </div>
 
                         <div class="mb-2">
-                            <label class="form-label">Required Experience</label>
-                            <input type="number" class="form-control" name="reqExperience" required>
+                            <label class="form-label" for="reqExperience">Required Experience</label>
+                            <input type="number" class="form-control" id="reqExperience" name="reqExperience" min="0" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Tech Stack</label>
+                            <label class="form-label" for="postTechStack">Tech Stack</label>
 
-                            <select multiple class="form-select" name="postTechStack" required>
+                            <select multiple class="form-select" id="postTechStack" name="postTechStack" size="8" required>
 
                                 <option value="Java">Java</option>
                                 <option value="JavaScript">JavaScript</option>
@@ -104,7 +104,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary w-100">
                             Submit
                         </button>
 
